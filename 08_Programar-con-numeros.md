@@ -24,20 +24,20 @@ Imagina que tienes una tarjeta de crédito con un programa de bonificación de m
 Supongamos que el programa de bonificación te proporciona **2 millas aéreas gratuitas por cada dólar que gastas**. Este es un sencillo programa para calcular cuándo podrás viajar gratis a algún lugar:
 
 ```python
-# the average amount of money per month
-money = int(input("How much money do you spend per month: "))
+# la cantidad media de dinero al mes
+money = int(input("¿Cuánto dinero gastas al mes? "))
 
-# the number of miles per unit of money
+# el número de millas por unidad monetaria
 n_miles = 2
 
-# earned miles
+# millas acumuladas
 miles_per_month = money * n_miles
 
-# the distance between London and Paris
+# la distancia entre Londres y París
 distance = 215
 
-# how many months do you need to get
-# a free trip from London to Paris and back
+# cuántos meses necesitas para conseguir
+# un viaje gratis de ida y vuelta de Londres a París
 print(distance * 2 / miles_per_month)
 ```
 
@@ -54,7 +54,7 @@ Sin embargo, existen otros operadores de asignación que puedes utilizar en Pyth
 Observa el siguiente fragmento de código:
 
 ```python
-# simple assignment
+# asignación simple
 number = 10
 number = number + 1  # 11
 ```
@@ -62,7 +62,7 @@ number = number + 1  # 11
 Este código es equivalente al siguiente:
 
 ```python
-# compound assignment
+# asignación compuesta
 number = 10
 number += 1  # 11
 ```
@@ -98,9 +98,9 @@ Considera este ejemplo, en el que el usuario determina el valor en el que se inc
 
 ```python
 counter = 1
-step = int(input())  # let it be 3
+step = int(input())  # introduce 3
 counter += step
-print(counter)  # it should be 4
+print(counter)  # debería ser 4
 ```
 
 Si solo necesitas obtener números enteros no negativos del usuario (después de todo, estamos incrementando el contador), puedes evitar entradas incorrectas utilizando la función `abs()`.
@@ -111,9 +111,9 @@ Vamos a modificar un poco nuestro programa anterior:
 
 ```python
 counter = 1
-step = abs(int(input()))  # user types -3
+step = abs(int(input()))  # el usuario introduce -3
 counter += step
-print(counter)  # it's still 4
+print(counter)  # sigue siendo 4
 ```
 
 Como puedes ver, gracias a la función `abs()` hemos obtenido un número positivo.
@@ -129,3 +129,159 @@ En este tema hemos aprendido:
 * cómo leer números introducidos por el usuario;
 * cómo asignar números a variables y utilizar operadores aritméticos para asignar el resultado de un cálculo;
 * qué son los contadores y cuándo se utilizan.
+
+## Ejercicios
+
+### Cuenta de ahorro
+
+Informa de un error (Report a typo)
+
+Para una cantidad de dinero determinada, calcula los intereses generados por esta cuenta de ahorro con un tipo de interés del 5 % después de un año.
+
+Utiliza la fórmula del interés simple para calcular los ingresos:
+
+![alt text](image.png)
+
+Guarda el resultado en la variable `income`. NO necesitas imprimirlo.
+
+Escribe un programa en Python 3.
+
+```python
+amount = 1000
+interest_rate = 5
+years = 1
+# cambia la siguiente linea
+income = (amount * interest_rate * years) / 100
+```
+
+### ¿Cuándo conseguirás un viaje gratis?
+
+La compañía aérea "Happy travel" tiene un programa de fidelización para sus clientes: por cada dólar gastado, obtienen 0,01 millas gratuitas en su cuenta, que pueden utilizar más adelante para viajar gratis.
+
+A continuación se muestra el código para calcular las millas aéreas gratuitas de un cliente que planea viajar de Londres a París y regresar:
+
+```python
+# número de millas aéreas gratuitas por cada dólar gastado
+n_miles = 0.01
+
+# cantidad de dinero gastada al mes
+money = 2000
+
+# número de millas aéreas gratuitas acumuladas al mes
+miles_per_month = money * n_miles
+
+# distancia entre Londres y París ida y vuelta
+total_distance = 215 * 2
+```
+
+¿Cuál sería la última línea correcta para calcular cuántos meses tardará este cliente en realizar el viaje deseado sin pagar nada?
+
+### Selecciona una opción de la lista
+
+#### Opción 1
+
+```python
+total_distance / miles_per_month
+```
+
+#### Opción 2
+
+```python
+total_distance * 2
+```
+
+#### Opción 3
+
+```python
+total_distance * miles_per_month
+```
+
+#### Opción 4
+
+```python
+total_distance * 2 / miles_per_month
+```
+
+### Dividir las nueces equitativamente entre las ardillas
+
+N ardillas han encontrado K nueces y han decidido repartirlas equitativamente.
+
+Determina cuántas nueces recibirá cada ardilla e imprime el resultado. La respuesta debe ser un número entero.
+
+Consejo: ¡Presta atención al orden de las variables!
+
+#### Formato de los datos de entrada
+
+Hay dos números positivos, N y K, cada uno de los cuales no es mayor que 10000.
+
+#### Ejemplo de entrada 1
+
+```text
+3
+14
+```
+
+#### Ejemplo de salida 1
+
+```text
+4
+```
+
+Escribe un programa en Python 3.
+
+```python
+N = int(input())
+K = int(input())
+nueces_por_ardilla = K // N
+print(nueces_por_ardilla)
+```
+
+### Encubierto
+
+¿Cuál de los siguientes operadores no tiene nada que ver con la asignación compuesta?
+
+#### Opciones de respuesta
+
+1. `==`
+
+2. `//=`
+
+3. `+=`
+
+4. `-=`
+
+5. `**=`
+
+6. `%=`
+
+### La suma de los dígitos
+
+Dado un número entero de tres cifras (es decir, un número entero entre 100 y 999), encuentra la suma de sus dígitos e imprime el resultado.
+
+Por ejemplo, tu programa recibe `476` como entrada. Entonces, debe sumar 4, 7 y 6 e imprimir el resultado.
+
+Para obtener los dígitos por separado del número entero introducido, utiliza los operadores `%` y `//` (por ejemplo, puedes obtener el 8 del número 508 calculando el resto de la división entre 10).
+
+#### Ejemplo de entrada 1
+
+```text
+476
+```
+
+#### Ejemplo de salida 1
+
+```text
+17
+```
+
+Escribe un programa en Python 3.
+
+```python
+numero = int(input())
+centenas = numero // 100
+resto = numero % 100
+decenas = resto // 10
+unidades = resto % 10
+suma = centenas + decenas + unidades
+print(suma)`
+```
