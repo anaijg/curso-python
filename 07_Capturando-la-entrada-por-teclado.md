@@ -116,7 +116,7 @@ print(data)
 
 Escribe un programa en Python 3.
 
-### Solución
+### Solución: probar la entrada de datos
 
 ```python
 data = input()
@@ -159,7 +159,7 @@ El programa debe:
 
 Escribe un programa en Python 3.
 
-### Solución
+### Solución: calcular el año de nacimiento
 
 ```python
 # Introduce la edad actual del usuario
@@ -194,3 +194,98 @@ print("Hello, " + input("Your name: > ") + "! I'm " + input("Bot name: > ") + "!
 ```
 
 La clave es utilizar `input()` directamente dentro de la expresión, sin necesidad de crear variables adicionales.
+
+## Estimar el año de nacimiento a partir de la edad introducida por el usuario
+
+Se te pide que desarrolles un programa sencillo en Python que solicite al usuario que introduzca su nombre y su edad por separado y, a continuación, muestre un mensaje de saludo al usuario con una estimación de su año de nacimiento.
+
+El programa calcula esta estimación restando la edad del usuario al año actual.
+
+Sin embargo, las líneas de código están desordenadas. Tu tarea consiste en reorganizarlas para que el programa funcione correctamente.
+
+Para explicar qué hacen determinadas partes del código, utilizamos #comentarios. Todo lo que aparece después del símbolo de almohadilla (#) hasta el final de la línea es un comentario y se ignorará al ejecutar el código.
+
+**Instrucciones:** Reordena las líneas arrastrándolas o utilizando las flechas. Ajusta la indentación con los botones de la izquierda.
+
+### Solución: estimar el año de nacimiento
+
+El orden correcto de las líneas es:
+
+```Python
+name = input("Please enter your name: ") #prompt for user's name
+age = int(input("Please enter your age: ")) #prompt for user's age
+year_born = 2025 - age #calculates birth year
+print(f"Hello {name}, you were probably born in {year_born}.") #prints out formatted personal message
+```
+
+## Suma de dos números decimales (float)
+
+Escribe un programa que lea dos números decimales de la entrada (utiliza la función `float()`) e imprima su suma.
+
+Consejo: No utilices los números concretos del ejemplo; léelos desde la entrada del usuario.
+
+### Ejemplo de entrada 1
+
+```text
+8.77
+11.25
+```
+
+### Ejemplo de salida 1
+
+```text
+20.02
+```
+
+### Solución: suma de dos números decimales
+
+```python
+# Lee dos números decimales desde la entrada del usuario
+num1 = float(input())
+num2 = float(input())
+# Calcula la suma de los dos números
+result = num1 + num2
+# Muestra el resultado  
+print(result)
+```
+
+## Dígitos protegidos: una consulta cuidadosa sobre la edad
+
+¡Hola! Este problema puede ser un poco impredecible, pero ¡inténtalo y cuéntanos cómo te va!
+
+¿Cuál de los siguientes fragmentos de código de Python captura correctamente la edad de un usuario a partir de la entrada de la consola, comprobando si la entrada contiene exclusivamente números antes de convertirla en un número entero?
+
+### Selecciona una o varias opciones de la lista
+
+#### Opción 1
+
+```Python
+age_input = input('Enter your age: ')
+age = int(age_input)
+if not age_input.isdigit():
+    print('Invalid input')
+```
+
+#### Opción 2
+
+```Python
+age_input = input('Please enter your age: ')
+if age_input.isdigit():
+    age = int(age_input)
+```
+
+#### Opción 3
+
+```Python
+age = int(input('Please enter your age if you are over 18: '))
+if age < 18:
+    print('Sorry, you must be 18 or older')
+```
+
+#### Opción 4
+
+```Python
+age_input = input('Enter age: ')
+age = int(age_input) if age_input.isdigit() else 0
+```
+
