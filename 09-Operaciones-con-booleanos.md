@@ -233,3 +233,179 @@ En este tema hemos aprendido sobre el **tipo booleano** de Python, sus operacion
 También hemos conocido los conceptos de valores **truthy** y **falsy**, así como el motivo por el que los operadores lógicos de Python utilizan **evaluación de cortocircuito**.
 
 Estos son los conceptos básicos de los valores booleanos y las operaciones lógicas en Python, y es muy importante conocerlos desde el principio. 
+
+## Ejercicios
+
+### Valores booleanos
+
+Suponiendo que las variables tienen los siguientes valores booleanos:
+
+```text
+a = True
+b = False
+c = a and not b
+```
+
+Introduce el resultado de evaluar la expresión:
+
+```text
+a and (not c or b)
+```
+
+#### Solución
+
+```text
+False
+```
+
+Explicación:
+
+1. `c = True and not False` → `c = True`.
+
+2. `not c` → `False`.
+
+3. `not c or b` → `False or False` → `False`.
+
+4. `a and False` → `True and False` → `False`.
+
+### Valores booleanos
+
+Suponiendo que las variables tienen los siguientes valores booleanos:
+
+```text
+a = True
+b = not a
+```
+
+Introduce el resultado de evaluar la expresión:
+
+```text
+not (a and b)
+```
+
+Pista: En Python, los valores booleanos `True` y `False` comienzan con mayúscula. Por tanto, ¡la respuesta distingue entre mayúsculas y minúsculas!
+
+#### Solución
+
+```text
+True
+```
+
+### Falso en Python
+
+Elige todos los valores falsy (considerados falsos). Un valor falsy es un valor que se considera falso cuando se evalúa en un contexto booleano.
+
+Consejo: ¡Estamos seguros de que las secuencias vacías se evalúan como `False`!
+
+Selecciona una o varias opciones de la lista:
+
+1. `False`
+
+2. `"False"`
+
+3. `""`
+
+4. `"0"`
+
+5. `0`
+
+Solución correcta: `False`, `""` y `0`.
+
+* `False`: es el valor booleano falso.
+
+* `""`: es una cadena vacía.
+
+* `0`: es el número cero.
+
+Las cadenas `"False"` y `"0"` son cadenas no vacías, por lo que se consideran verdaderas (`True`) en Python.
+
+### Cuando lo soleado se encuentra con lo lluvioso: un giro lógico
+
+Enunciado
+
+Dado el siguiente fragmento de código Python:
+
+```text
+is_raining = True
+```
+
+y
+
+```text
+is_sunny = False
+```
+
+¿Cuál será el resultado de evaluar la expresión?
+
+```text
+not is_raining and is_sunny
+```
+
+Selecciona una opción de la lista:
+
+* `True`
+
+* `None`
+
+* `False`
+
+* `Error`
+
+Solución correcta: `False`
+
+Explicación:
+
+1. `is_raining` es `True`, por lo que `not is_raining` es `False`.
+
+2. `is_sunny` es `False`.
+
+3. La expresión `False and False` devuelve `False`.
+
+En Python, el operador `and` devuelve `True` únicamente cuando ambos operandos son verdaderos.
+
+### Tipo booleano
+
+¿Qué valores se consideran booleanos en Python?
+
+Selecciona una o varias opciones de la lista:
+
+1. `"True"`
+
+2. `True`
+
+3. `0`
+
+4. `False`
+
+5. `None`
+
+6. `1`
+
+Solución correcta:
+
+* `True`
+
+* `False`
+
+Explicación: En Python, los únicos valores del tipo booleano (`bool`) son `True` y `False`. Aunque `0` y `1` pueden utilizarse en contextos booleanos, son valores de tipo entero (`int`).
+
+### Prioridad
+
+Ordena las operaciones booleanas de mayor a menor prioridad.
+
+Coloca los elementos en el orden correcto:
+
+1. `not`
+
+2. `and`
+
+3. `or`
+
+Solución correcta (de mayor a menor prioridad):
+
+1. `not` — Negación
+
+2. `and` — Conjunción (Y)
+
+3. `or` — Disyunción (O)
+
