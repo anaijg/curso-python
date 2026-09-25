@@ -183,176 +183,213 @@ if bool(lst):
 
 ## Ejercicios
 
-### Valores booleanos
+### Punto fijo
 
-Suponiendo que las variables tienen los siguientes valores booleanos:
+Encuentra un valor `x` tal que, cuando Python lo convierte a un valor booleano mediante `bool(x)`, el resultado sea igual al propio `x`.
 
-```text
-a = True
-b = False
-c = a and not b
+En otras palabras, `x` es un punto fijo de la función `bool()` si la expresión `bool(x) == x` se evalúa como `True`.
+
+No escribas `bool()` en tu respuesta; proporciona únicamente el valor de `x`.
+
+Introduce un texto breve.
+
+Solución: `True`
+
+### Corrige un error
+
+El código siguiente resuelve el problema de comprobar si una fracción es igual a `0.5`, dados el numerador y el denominador.
+
+El programa debe imprimir `True` o `False`. Si el denominador es igual a `0`, el resultado debe ser `False`.
+
+```Python
+def compare(numerator, denominator):
+    return denominator and numerator / denominator == 0.5
+
+
+a = int(input())
+b = int(input())
+
+print(compare(a, b))
 ```
 
-Introduce el resultado de evaluar la expresión:
+Sin embargo, este código funciona incorrectamente. Encuentra y corrige el error y, a continuación, ejecuta el código.
+
+#### Ejemplo de entrada 1
 
 ```text
-a and (not c or b)
+5
+10
 ```
 
-#### Solución
-
-```text
-False
-```
-
-Explicación:
-
-1. `c = True and not False` → `c = True`.
-
-2. `not c` → `False`.
-
-3. `not c or b` → `False or False` → `False`.
-
-4. `a and False` → `True and False` → `False`.
-
-### Valores booleanos
-
-Suponiendo que las variables tienen los siguientes valores booleanos:
-
-```text
-a = True
-b = not a
-```
-
-Introduce el resultado de evaluar la expresión:
-
-```text
-not (a and b)
-```
-
-Pista: En Python, los valores booleanos `True` y `False` comienzan con mayúscula. Por tanto, ¡la respuesta distingue entre mayúsculas y minúsculas!
-
-#### Solución
+#### Ejemplo de salida 1
 
 ```text
 True
 ```
 
-### Falso en Python
+#### Ejemplo de entrada 2
 
-Elige todos los valores falsy (considerados falsos). Un valor falsy es un valor que se considera falso cuando se evalúa en un contexto booleano.
+```text
+3
+0
+```
 
-Consejo: ¡Estamos seguros de que las secuencias vacías se evalúan como `False`!
+#### Ejemplo de salida 2
+
+```text
+False
+```
+
+#### Ejemplo de entrada 3
+
+```text
+-1
+-2
+```
+
+#### Ejemplo de salida 3
+
+```text
+True
+```
+
+Escribe un programa en Python 3.
+
+#### Solución
+
+El error está en que, cuando `denominator` es `0`, la expresión `denominator and ...` devuelve `0`, en lugar de `False`.
+
+Para garantizar que el resultado sea siempre un booleano, podemos utilizar una condición explícita:
+
+```python
+def compare(numerator, denominator):
+    return denominator != 0 and numerator / denominator == 0.5
+
+
+a = int(input())
+b = int(input())
+
+print(compare(a, b))
+```
+
+La expresión `denominator != 0` devuelve `False` cuando el denominador es cero y `True` en caso contrario. Así, la función devuelve siempre `True` o `False`.
+
+### Saluda
+
+Es habitual saludar a los usuarios después de que se registren en tu sitio web.
+
+En este ejercicio, debes implementar una función que reciba una cadena `name` como argumento e imprima `"Hello, NAME!"`, donde NAME se sustituye por el nombre del usuario.
+
+Sin embargo, algunos usuarios pueden preferir no revelar su nombre, por lo que `name` puede ser una cadena vacía. En ese caso, tu programa debe imprimir `"Hello, Anonymous!"`.
+
+Tu programa no debe leer ninguna entrada ni llamar a la función; únicamente debes implementarla.
+
+#### Ejemplo de entrada 1
+
+```text
+Eve
+```
+
+#### Ejemplo de salida 1
+
+```text
+Hello, Eve!
+```
+
+#### Ejemplo de entrada 2
+
+```text
+```
+
+#### Ejemplo de salida 2
+
+```text
+Hello, Anonymous!
+```
+
+Escribe un programa en Python 3.
+
+**Solución**
+
+```python
+def say_hello(name):
+    if name == "":
+        print("Hello, Anonymous!")
+    else:
+        print("Hello, " + name + "!")
+```
+
+La función comprueba si `name` está vacío. Si lo está, imprime el saludo anónimo; en caso contrario, utiliza el nombre recibido.
+
+### Valores falsy
+
+Selecciona todos los valores falsy (considerados falsos) en Python.
 
 Selecciona una o varias opciones de la lista:
 
-1. `False`
+1. `0`
 
-2. `"False"`
+2. `[None]`
 
 3. `""`
 
-4. `"0"`
-
-5. `0`
-
-Solución correcta: `False`, `""` y `0`.
-
-* `False`: es el valor booleano falso.
-
-* `""`: es una cadena vacía.
-
-* `0`: es el número cero.
-
-Las cadenas `"False"` y `"0"` son cadenas no vacías, por lo que se consideran verdaderas (`True`) en Python.
-
-### Cuando lo soleado se encuentra con lo lluvioso: un giro lógico
-
-Enunciado
-
-Dado el siguiente fragmento de código Python:
-
-```text
-is_raining = True
-```
-
-y
-
-```text
-is_sunny = False
-```
-
-¿Cuál será el resultado de evaluar la expresión?
-
-```text
-not is_raining and is_sunny
-```
-
-Selecciona una opción de la lista:
-
-* `True`
-
-* `None`
-
-* `False`
-
-* `Error`
-
-Solución correcta: `False`
-
-Explicación:
-
-1. `is_raining` es `True`, por lo que `not is_raining` es `False`.
-
-2. `is_sunny` es `False`.
-
-3. La expresión `False and False` devuelve `False`.
-
-En Python, el operador `and` devuelve `True` únicamente cuando ambos operandos son verdaderos.
-
-### Tipo booleano
-
-¿Qué valores se consideran booleanos en Python?
-
-Selecciona una o varias opciones de la lista:
-
-1. `"True"`
-
-2. `True`
-
-3. `0`
-
-4. `False`
-
-5. `None`
-
-6. `1`
+4. `"False"`
 
 Solución correcta:
 
-* `True`
+* `0`
 
-* `False`
+* `""`
 
-Explicación: En Python, los únicos valores del tipo booleano (`bool`) son `True` y `False`. Aunque `0` y `1` pueden utilizarse en contextos booleanos, son valores de tipo entero (`int`).
+Explicación:
 
-### Prioridad
+* `0`: es un valor falsy porque es el número cero.
 
-Ordena las operaciones booleanas de mayor a menor prioridad.
+* `[None]`: es una lista no vacía, por lo que es truthy (`True`).
 
-Coloca los elementos en el orden correcto:
+* `""`: es una cadena vacía, por lo que es falsy.
 
-1. `not`
+* `"False"`: es una cadena no vacía, por lo que es truthy (`True`).
 
-2. `and`
+### Encuentra la contraseña
 
-3. `or`
+Imagina que eres un hacker y has conseguido acceder a un servidor web escrito en Python. El problema es que te pide una contraseña que no conoces.
 
-Solución correcta (de mayor a menor prioridad):
+Sin embargo, este servidor es de código abierto, por lo que sabes que existe una función `wrong_password()` que recibe una contraseña y la comprueba con `real_password`.
 
-1. `not` — Negación
+```python
+def wrong_password(password):
+    return (password == "" or (not password and real_password)) or password != real_password
+```
 
-2. `and` — Conjunción (Y)
+No puedes acceder a la variable `real_password`, pero puedes llamar a la función `wrong_password()` y explotar su vulnerabilidad para obtener la contraseña.
 
-3. `or` — Disyunción (O)
+Escribe tu código dentro de la función `solve()`. Piensa en un argumento que puedas pasar a la función `wrong_password()` para que esta devuelva el valor de `real_password`.
+
+Imprime el resultado de la función `wrong_password()`.
+
+Tu programa no debe leer ninguna entrada ni llamar a la función `solve()`. Tu tarea consiste únicamente en implementarla.
+
+Consejo: Recuerda que los operadores `and` y `or` devuelven uno de sus operandos. Consulta las tablas que muestran qué operandos devuelven los operadores en los distintos casos.
+
+Escribe un programa en Python 3.
+
+**Solución**
+
+```python
+def solve():
+    print(wrong_password(None))
+```
+
+Explicación:
+
+Al pasar `None`:
+
+* `password == ""` es `False`.
+
+* `not password` es `True`, por lo que `not password and real_password` devuelve `real_password`.
+
+* La expresión completa devuelve `real_password`, porque el operador `or` devuelve el primer operando verdadero.
+
+Por tanto, `wrong_password(None)` devuelve la contraseña real sin necesidad de conocerla previamente.
 
